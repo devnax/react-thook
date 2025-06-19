@@ -1,2 +1,4 @@
 node_modules
-build
+.mpack
+bun.lock
+package-lock.json

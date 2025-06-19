@@ -1,23 +1,23 @@
 {
    "name": "react-thook",
-   "version": "1.0.2",
-   "main": "./cjs/index.js",
-   "module": "./index.js",
-   "types": "./types/index.d.ts",
+   "version": "1.0.3",
+   "main": "./index.js",
+   "module": "./index.mjs",
+   "types": "./index.d.ts",
    "description": "",
    "keywords": [],
    "scripts": {
       "start": "makepack start",
       "build": "makepack build",
-      "build:publish": "makepack publish"
+      "release": "makepack release"
    },
    "dependencies": {
-      "react-state-bucket": "^1.1.6"
+      "react-state-bucket": "^1.2.0"
    },
    "devDependencies": {
       "@types/react": "^19.0.2",
       "@types/react-dom": "^19.0.2",
-      "makepack": "^1.5.24",
+      "makepack": "^1.7.5",
       "react": "^19.0.0",
       "react-dom": "^19.0.0",
       "typescript": "^4.4.2"
