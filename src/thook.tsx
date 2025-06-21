@@ -1,25 +1,24 @@
 import React from "react";
-import { MethodType, StateHook, ThookOption, useState } from "./types"
+import { MethodType, StateHook, ThookOption } from "./types"
 import { createBucket } from 'react-state-bucket';
 
 const thook = <O extends ThookOption>(option: ThookOption) => {
 
   return class Thook {
-    private useState: useState;
+    bucket: any;
     state: StateHook<O['state']> = {} as StateHook<O['state']>;
     events: { [key: string]: MethodType[] } = {};
     options: { [key: string]: any } = {};
-
     [key: string]: any;
 
     constructor(options: { [key: string]: any }) {
       this.options = options;
-      this.useState = createBucket(option.state || {}) as any;
+      this.bucket = createBucket(option.state || {}) as any;
       this.render = this.render.bind(this);
 
-      if (option.methods) {
-        Object.keys(option.methods).forEach((methodName) => {
-          const method = option.methods![methodName] as MethodType;
+      if ((option as any).methods) {
+        Object.keys((option as any).methods).forEach((methodName) => {
+          const method = (option as any).methods![methodName] as MethodType;
           if (typeof method !== 'function') {
             throw new Error(`Method ${methodName} is not a function`);
           }
@@ -32,7 +31,7 @@ const thook = <O extends ThookOption>(option: ThookOption) => {
     }
 
     render() {
-      this.state = this.useState();
+      this.state = this.bucket();
       const Template = option.template.bind(this);
       return <Template />;
     }

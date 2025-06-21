@@ -12,12 +12,12 @@
       "release": "makepack release"
    },
    "dependencies": {
+      "makepack": "^1.7.6",
       "react-state-bucket": "^1.2.0"
    },
    "devDependencies": {
       "@types/react": "^19.0.2",
       "@types/react-dom": "^19.0.2",
-      "makepack": "^1.7.5",
       "react": "^19.0.0",
       "react-dom": "^19.0.0",
       "typescript": "^4.4.2"
